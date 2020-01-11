@@ -4,8 +4,7 @@ package com.reservation.ensi.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 
 @Data
 @Entity
