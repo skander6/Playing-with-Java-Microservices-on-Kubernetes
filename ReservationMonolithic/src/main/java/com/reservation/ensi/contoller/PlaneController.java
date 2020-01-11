@@ -27,7 +27,6 @@ public class PlaneController {
 
     @PutMapping("/update")
     public void updateClient(@RequestBody Plane plane) {
-
         this.planeService.save(plane);
 
     }
