@@ -15,6 +15,8 @@ public class ReservationService {
     @Autowired
     private ReservationRepository reservationRepository;
 
+    private Reservation reservation;
+
     public List<Reservation> findAll(){
         return this.reservationRepository.findAll();
     }
@@ -32,6 +34,13 @@ public class ReservationService {
 
     public void deleteById(Long id){
         this.reservationRepository.deleteById(id);
+    }
+
+    public void pay(Long id) {
+
+        reservation = reservationRepository.getOne(id);
+        reservation.setPaiment(Boolean.TRUE);
+        reservationRepository.save(reservation);
     }
 
 }

@@ -23,4 +23,8 @@ public class Reservation {
             this.vol=vol;
             this.placeNumber=placeNumber;
         }
+
+    public void setPaiment(Boolean paiment) {
+        this.paiment = paiment;
+    }
 }

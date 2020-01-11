@@ -27,14 +27,13 @@ public class ReservationController {
         return this.reservationService.findAll();
     }
 
-    @PutMapping("/pay")
-    public void updateClient(@RequestBody Reservation reservation) {
-        this.reservationService.create();
-
+    @PutMapping("/{id}/pay")
+    public void updateClient(@PathVariable Long id) {
+        this.reservationService.pay(id);
     }
 
     @DeleteMapping("/{id}")
     public void deletePlane(@PathVariable String id){
-        this.planeService.deleteById(Long.valueOf(id));
+        this.reservationService.deleteById(Long.valueOf(id));
     }
 }
