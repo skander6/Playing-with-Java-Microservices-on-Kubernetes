@@ -23,5 +23,4 @@ public class Reservation {
             this.vol=vol;
             this.placeNumber=placeNumber;
         }
-    }
 }
