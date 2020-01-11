@@ -21,6 +21,11 @@ public class PlaneService {
         return this.planeRepository.save(
                 new Plane( planeDTO.getType(),planeDTO.isAvailable(), planeDTO.getNbPlace()));
     }
+
+    public void save(Plane plane) {
+        planeRepository.save(plane);
+    }
+
     public void deleteById(Long id){
         this.planeRepository.deleteById(id);
     }
