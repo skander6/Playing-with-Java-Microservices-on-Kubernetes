@@ -2,10 +2,7 @@ package com.reservation.ensi.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -14,16 +11,17 @@ public class Reservation {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
         private Boolean paiment = false;
-
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        private Long placeNumber;
+        private int placeNumber;
+        @OneToOne
         private Vol vol;
+        @OneToOne
         private User user;
 
 
-        public Reservation(User user, Vol vol,  ) {
+        public Reservation(User user, Vol vol, int placeNumber ) {
             this.user=user;
             this.vol=vol;
+            this.placeNumber=placeNumber;
         }
     }
 }
