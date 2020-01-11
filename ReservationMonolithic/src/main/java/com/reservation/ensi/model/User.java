@@ -1,8 +1,14 @@
 package com.reservation.ensi.model;
 
+<<<<<<< HEAD
 import javax.persistence.*;
 
 import lombok.*;
+=======
+import lombok.Data;
+
+import javax.persistence.Entity;
+>>>>>>> 33f97eb87ccaae368d42837a8735cc93e3a38969
 
 @Data
 @Entity
