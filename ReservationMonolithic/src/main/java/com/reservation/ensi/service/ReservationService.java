@@ -20,7 +20,7 @@ public class ReservationService {
     }
 
     public Reservation create(ReservationDTO reservationDTO){
-        if(reservationDTO.getVol().compareTo(BigDecimal.ZERO)>0){
+        if(reservationDTO.getVol().getNbrePlaceDispo() > 0){
             return this.reservationRepository.save(
                     new Reservation(reservationDTO.getUser(), reservationDTO.getVol(), reservationDTO.getPlaceNumber()));
         }
