@@ -15,19 +15,19 @@ public class Vol {
     private Long id;
     private String depart;
     private String arrive;
-    private Date date_depart;
-    private Date date_arrive;
-    private  Long nbre_place_dispo;
+    private Date dateDepart;
+    private Date dateArrive;
+    private  Long nbrePlaceDispo;
     @OneToOne
     private Plane plane;
 
     public Vol(){
 
     }
-    public Vol(String depart,String arrive,Date date_depart,Date date_arrive,Long nbre_place_dispo){
+    public Vol(String depart,String arrive,Date dateDepart,Date dateArrive,Long nbrePlaceDispo){
         this.depart=depart;
         this.arrive=arrive;
-        this.date_arrive=date_arrive;
-        this.nbre_place_dispo=nbre_place_dispo;
+        this.dateArrive=dateArrive;
+        this.nbrePlaceDispo=nbrePlaceDispo;
     }
 }
