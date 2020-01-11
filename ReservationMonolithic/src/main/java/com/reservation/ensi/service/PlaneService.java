@@ -1,6 +1,7 @@
 package com.reservation.ensi.service;
 
 
+import com.reservation.ensi.DTO.PlaneDTO;
 import com.reservation.ensi.model.Plane;
 import com.reservation.ensi.persistence.PlaneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class PlaneService {
 
     public Plane create(PlaneDTO planeDTO){
         return this.planeRepository.save(
-                new Plane( planeDTO.name(), planeDTO.getPrice()));
+                new Plane( planeDTO.getType(),planeDTO.isAvailable(), planeDTO.getNbPlace()));
     }
     public void deleteById(Long id){
         this.planeRepository.deleteById(id);
