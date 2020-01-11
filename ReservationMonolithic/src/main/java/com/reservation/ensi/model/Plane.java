@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Plane {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
     private String type;
     private boolean available;
     private int nbPlace;
