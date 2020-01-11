@@ -11,8 +11,10 @@ import java.util.List;
 
 @Service
 public class PlaneService {
+
     @Autowired
     private PlaneRepository planeRepository;
+
     public List<Plane> findAll(){
         return this.planeRepository.findAll();
     }
@@ -21,6 +23,7 @@ public class PlaneService {
         return this.planeRepository.save(
                 new Plane( planeDTO.getType(),planeDTO.isAvailable(), planeDTO.getNbPlace()));
     }
+
 
     public void save(Plane plane) {
         planeRepository.save(plane);
