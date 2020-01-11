@@ -26,4 +26,7 @@ public class VolService {
     public void deleteById(Long id){
         this.volRepository.deleteById(id);
     }
+    public void save(Vol vol) {
+        volRepository.save(vol);
+    }
 }
