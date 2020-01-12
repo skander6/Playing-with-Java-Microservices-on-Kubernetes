@@ -7,6 +7,7 @@ import com.reservation.ensi.model.Plane;
 import com.reservation.ensi.model.Vol;
 import com.reservation.ensi.service.VolService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,11 +17,11 @@ import java.util.List;
 public class VolController {
     @Autowired
     private VolService volService;
-    @PostMapping("/{planeId}")
+    @PostMapping(value="/{planeId}",consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = { MediaType.APPLICATION_JSON_VALUE})
     public Vol create(@RequestBody VolDTO volDTO,@PathVariable Long planeId){
-        Plane plane= volService.findPlaneById(planeId);
-        System.out.println(planeId);
-        return this.volService.create(volDTO,plane);
+        Plane plane= new Plane(planeId,"");
+        volDTO.setPlane(plane);
+        return this.volService.create(volDTO);
     }
     @GetMapping("/all")
     public List<Vol> findAll(){

@@ -10,12 +10,16 @@ public class VolDTO {
     private String arrive;
     private Date dateDepart;
     private Date dateArrive;
-    private  Long NbrePlaceDispo;
+    private  Long nbrePlaceDispo;
+    private Plane plane;
 
     public Date getDateArrive() {
         return dateArrive;
     }
 
+    public void setPlane(Plane plane) {
+        this.plane = plane;
+    }
 
     public String getDepart() {
         return depart;
@@ -50,10 +54,14 @@ public class VolDTO {
     }
 
     public Long getNbrePlaceDispo() {
-        return NbrePlaceDispo;
+        return nbrePlaceDispo;
     }
 
     public void setNbrePlaceDispo(Long nbrePlaceDispo) {
-        NbrePlaceDispo = nbrePlaceDispo;
+        nbrePlaceDispo = nbrePlaceDispo;
+    }
+
+    public Plane getPlane() {
+        return this.plane;
     }
 }
