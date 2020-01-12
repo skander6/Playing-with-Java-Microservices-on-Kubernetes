@@ -11,7 +11,7 @@ import com.reservation.ensi.service.UserService;
 
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api//users")
 public class UserController {
 	@Autowired
     private UserService userService;

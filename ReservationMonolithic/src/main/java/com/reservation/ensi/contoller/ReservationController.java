@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping("/api/users/{userId}/reservation")
+@RequestMapping("/api/reservations/user/{userId}")
 public class ReservationController {
 
     @Autowired
@@ -23,11 +23,11 @@ public class ReservationController {
     }
 
     @GetMapping("/all")
-    public List<Reservation> getAllReservation(){
-        return this.reservationService.getAllReservation();
+    public List<Reservation> getAllUserReservations(@PathVariable Long userId){
+        return this.reservationService.getAllUserReservations(userId);
     }
 
-    @PutMapping("/{reservationId}/pay")
+    @PutMapping("/pay/{reservationId}")
     public void payReservation(@PathVariable Long reservationId) {
         this.reservationService.pay(reservationId);
     }

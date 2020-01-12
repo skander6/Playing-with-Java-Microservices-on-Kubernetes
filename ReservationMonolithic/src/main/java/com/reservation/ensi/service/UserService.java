@@ -11,11 +11,14 @@ import java.util.List;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserRepository userRepository;
+
     public List<User> findAll(){
         return this.userRepository.findAll();
-     }
+
+    }
     public User create(UserDTO userdto){
 
         return this.userRepository.save(new User(userdto.getNom(),userdto.getPrenom(),userdto.getMail(),userdto.getCarte_bancaire(),userdto.getNumero()));

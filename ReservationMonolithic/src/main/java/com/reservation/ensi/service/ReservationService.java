@@ -22,20 +22,23 @@ public class ReservationService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired VolRepository volRepository;
+    @Autowired
+    private VolRepository volRepository;
 
     private Reservation reservation;
 
-    public List<Reservation> getAllReservation(){
-        return this.reservationRepository.findAll();
+    public List<Reservation> getAllUserReservations(Long userId){
+        return this.reservationRepository.findReservationsByUser(userId);
     }
 
     public Reservation createReservation(ReservationDTO reservationDTO, Long userId, Long volId){
-        User user = userRepository.getOne(userId);
+        //User user = userRepository.getOne(userId);
         Vol vol = volRepository.getOne(volId);
-        if(reservationDTO.getVol().getNbrePlaceDispo() > 0){
+        if(vol.getNbrePlaceDispo() > 0){
+            vol.setNbrePlaceDispo(vol.getNbrePlaceDispo()-1);
+            volRepository.save(vol);
             return this.reservationRepository.save(
-                    new Reservation(user, vol, reservationDTO.getPlaceNumber()));
+                    new Reservation(userId, volId, reservationDTO.getPlaceNumber()));
         }
 
         else {
@@ -48,9 +51,8 @@ public class ReservationService {
     }
 
     public void pay(Long id) {
-
         reservation = reservationRepository.getOne(id);
-        reservation.setPaiment(Boolean.TRUE);
+        reservation.setPaiment(true);
         reservationRepository.save(reservation);
     }
 
