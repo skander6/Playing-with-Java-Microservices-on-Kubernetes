@@ -1,6 +1,6 @@
-package com.reservation.ensi.DTO;
+package com.ensi.logistic.DTO;
 
-import com.reservation.ensi.model.Plane;
+import com.ensi.logistic.model.Plane;
 import lombok.Data;
 
 import java.util.Date;

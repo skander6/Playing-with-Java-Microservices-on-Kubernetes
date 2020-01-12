@@ -1,6 +1,6 @@
-package com.reservation.ensi.persistence;
+package com.ensi.logistic.persistence;
 
-import com.reservation.ensi.model.Vol;
+import com.ensi.logistic.model.Vol;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

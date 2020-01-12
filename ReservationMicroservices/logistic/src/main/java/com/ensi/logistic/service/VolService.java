@@ -1,11 +1,11 @@
-package com.reservation.ensi.service;
+package com.ensi.logistic.service;
+import com.ensi.logistic.persistence.PlaneRepository;
+import com.ensi.logistic.persistence.VolRepository;
 
-import com.reservation.ensi.DTO.PlaneDTO;
-import com.reservation.ensi.DTO.VolDTO;
-import com.reservation.ensi.model.Plane;
-import com.reservation.ensi.model.Vol;
-import com.reservation.ensi.persistence.PlaneRepository;
-import com.reservation.ensi.persistence.VolRepository;
+import com.ensi.logistic.DTO.VolDTO;
+import com.ensi.logistic.model.Plane;
+import com.ensi.logistic.model.Vol;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +33,7 @@ public class VolService {
     public void save(Vol vol) {
         volRepository.save(vol);
     }
-    public  Plane findPlaneById(Long id) {
+    public Plane findPlaneById(Long id) {
         return this.planeRepository.getOne(id);
     }
 

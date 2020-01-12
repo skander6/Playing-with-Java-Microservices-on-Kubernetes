@@ -1,7 +1,7 @@
-package com.reservation.ensi.contoller;
+package com.ensi.reservation.contoller;
 
+import com.ensi.reservation.model.Reservation;
 import com.reservation.ensi.DTO.ReservationDTO;
-import com.reservation.ensi.model.Reservation;
 import com.reservation.ensi.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

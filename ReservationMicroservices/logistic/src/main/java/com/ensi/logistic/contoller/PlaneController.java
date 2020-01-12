@@ -1,15 +1,16 @@
 
-package com.reservation.ensi.contoller;
+package com.ensi.logistic.contoller;
 
 
+import com.ensi.logistic.model.Plane;
+import com.ensi.logistic.service.PlaneService;
 import com.reservation.ensi.DTO.PlaneDTO;
-import com.reservation.ensi.model.Plane;
-import com.reservation.ensi.service.PlaneService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = {"http://localhost:8082","http://localhost:8083"})
 @RestController
 @RequestMapping("/planes")
 public class PlaneController {

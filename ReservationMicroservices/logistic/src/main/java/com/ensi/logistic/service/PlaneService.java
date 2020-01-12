@@ -1,9 +1,10 @@
-package com.reservation.ensi.service;
+package com.ensi.logistic.service;
 
 
+import com.ensi.logistic.model.Plane;
+import com.ensi.logistic.persistence.PlaneRepository;
 import com.reservation.ensi.DTO.PlaneDTO;
-import com.reservation.ensi.model.Plane;
-import com.reservation.ensi.persistence.PlaneRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

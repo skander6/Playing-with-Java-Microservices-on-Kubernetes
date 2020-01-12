@@ -1,4 +1,4 @@
-package com.reservation.ensi.model;
+package com.ensi.logistic.model;
 
 
 import lombok.Data;

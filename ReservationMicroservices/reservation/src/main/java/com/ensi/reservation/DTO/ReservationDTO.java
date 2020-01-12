@@ -1,7 +1,6 @@
-package com.reservation.ensi.DTO;
+package com.ensi.reservation.DTO;
 
-import com.reservation.ensi.model.User;
-import com.reservation.ensi.model.Vol;
+
 
 public class ReservationDTO {
 
