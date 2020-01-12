@@ -10,30 +10,30 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping("/users/{id}/reservation")
+@RequestMapping("/api/users/{userId}/reservation")
 public class ReservationController {
 
     @Autowired
     private ReservationService reservationService;
 
 
-    @PostMapping
-    public Reservation create(@RequestBody ReservationDTO reservationDTO){
-        return this.reservationService.create(reservationDTO);
+    @PostMapping("/vol/{volId}")
+    public Reservation createReservation(@RequestBody ReservationDTO reservationDTO, @PathVariable Long userId, @PathVariable Long volId){
+        return this.reservationService.createReservation(reservationDTO, userId, volId);
     }
 
     @GetMapping("/all")
-    public List<Reservation> findAll(){
-        return this.reservationService.findAll();
+    public List<Reservation> getAllReservation(){
+        return this.reservationService.getAllReservation();
     }
 
-    @PutMapping("/{id}/pay")
-    public void updateClient(@PathVariable Long id) {
-        this.reservationService.pay(id);
+    @PutMapping("/{reservationId}/pay")
+    public void payReservation(@PathVariable Long reservationId) {
+        this.reservationService.pay(reservationId);
     }
 
-    @DeleteMapping("/{id}")
-    public void deletePlane(@PathVariable String id){
-        this.reservationService.deleteById(Long.valueOf(id));
+    @DeleteMapping("/{reservationId}")
+    public void deletePlane(@PathVariable String reservationId){
+        this.reservationService.deleteById(Long.valueOf(reservationId));
     }
 }

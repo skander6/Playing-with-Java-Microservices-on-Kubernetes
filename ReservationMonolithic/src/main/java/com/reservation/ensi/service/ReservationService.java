@@ -2,7 +2,11 @@ package com.reservation.ensi.service;
 
 import com.reservation.ensi.DTO.ReservationDTO;
 import com.reservation.ensi.model.Reservation;
+import com.reservation.ensi.model.User;
+import com.reservation.ensi.model.Vol;
 import com.reservation.ensi.persistence.ReservationRepository;
+import com.reservation.ensi.persistence.UserRepository;
+import com.reservation.ensi.persistence.VolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,16 +19,23 @@ public class ReservationService {
     @Autowired
     private ReservationRepository reservationRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired VolRepository volRepository;
+
     private Reservation reservation;
 
-    public List<Reservation> findAll(){
+    public List<Reservation> getAllReservation(){
         return this.reservationRepository.findAll();
     }
 
-    public Reservation create(ReservationDTO reservationDTO){
+    public Reservation createReservation(ReservationDTO reservationDTO, Long userId, Long volId){
+        User user = userRepository.getOne(userId);
+        Vol vol = volRepository.getOne(volId);
         if(reservationDTO.getVol().getNbrePlaceDispo() > 0){
             return this.reservationRepository.save(
-                    new Reservation(reservationDTO.getUser(), reservationDTO.getVol(), reservationDTO.getPlaceNumber()));
+                    new Reservation(user, vol, reservationDTO.getPlaceNumber()));
         }
 
         else {
