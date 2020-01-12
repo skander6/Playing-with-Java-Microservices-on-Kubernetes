@@ -22,9 +22,9 @@ public class VolService {
         return this.volRepository.findAll();
     }
 
-    public Vol create(VolDTO volDTO,Plane plane){
+    public Vol create(VolDTO volDTO){
         return this.volRepository.save(
-                new Vol( volDTO.getDepart(),volDTO.getArrive(), volDTO.getDateDepart(),volDTO.getdateArrive(),volDTO.getNbrePlaceDispo(),plane));
+                new Vol( volDTO.getDepart(),volDTO.getArrive(), volDTO.getDateDepart(),volDTO.getdateArrive(),volDTO.getNbrePlaceDispo(),volDTO.getPlane()));
     }
     public void deleteById(Long id){
         this.volRepository.deleteById(id);

@@ -39,5 +39,9 @@ public class Vol {
     public void setNbrePlaceDispo(Long nbrePlaceDispo) {
         this.nbrePlaceDispo = nbrePlaceDispo;
     }
+
+    public void setPlane(Plane plane) {
+        this.plane = plane;
+    }
 }
 

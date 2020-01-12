@@ -4,6 +4,7 @@ package com.reservation.ensi.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Data
@@ -15,6 +16,9 @@ public class Plane {
     private String type;
     private boolean available;
     private int nbPlace;
+    @OneToMany
+    private List<Vol> vols;
+
     public Plane(){
 
     }
@@ -22,6 +26,11 @@ public class Plane {
         this.type=type;
         this.available=available;
         this.nbPlace=nbPlace;
+    }
+    public Plane(Long id,String type) {
+        this.id=id;
+        this.type=type;
+
     }
 
 }

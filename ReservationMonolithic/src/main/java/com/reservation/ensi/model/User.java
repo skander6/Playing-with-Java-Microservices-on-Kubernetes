@@ -1,9 +1,6 @@
 package com.reservation.ensi.model;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> bf42036a33ec45d3f3c49fac84d65954655a8157
 import javax.persistence.*;
 
 import lombok.*;
@@ -12,11 +9,8 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 
-<<<<<<< HEAD
-import org.hibernate.annotations.DynamicUpdate;
 
-=======
->>>>>>> bf42036a33ec45d3f3c49fac84d65954655a8157
+import org.hibernate.annotations.DynamicUpdate;
 
 @Data
 @Entity
