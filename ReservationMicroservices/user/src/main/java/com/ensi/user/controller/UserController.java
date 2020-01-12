@@ -1,12 +1,13 @@
-package com.reservation.ensi.contoller;
+package com.ensi.user.controller;
 
 import java.util.List;
 
+import com.ensi.user.model.User;
+import com.ensi.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.reservation.ensi.DTO.UserDTO;
-import com.reservation.ensi.model.User;
-import com.reservation.ensi.service.UserService;
+
 
 
 

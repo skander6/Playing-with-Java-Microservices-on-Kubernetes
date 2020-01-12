@@ -1,10 +1,11 @@
-package com.reservation.ensi.service;
+package com.ensi.user.service;
+import com.ensi.user.model.User;
+import com.ensi.user.persistance.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.reservation.ensi.DTO.UserDTO;
-import com.reservation.ensi.model.User;
-import com.reservation.ensi.persistence.UserRepository;
+
 
 import java.math.BigDecimal;
 import java.util.List;
