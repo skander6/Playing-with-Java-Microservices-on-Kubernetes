@@ -17,7 +17,7 @@ public class Reservation {
         @OneToOne
         private User user;
 
-
+        public Reservation () {}
         public Reservation(User user, Vol vol, int placeNumber ) {
             this.user=user;
             this.vol=vol;
