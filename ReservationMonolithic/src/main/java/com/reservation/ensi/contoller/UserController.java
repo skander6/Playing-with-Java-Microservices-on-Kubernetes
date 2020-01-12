@@ -18,8 +18,8 @@ public class UserController {
 	
 	
 	@PostMapping("/create")
-    public User create(@RequestBody UserDTO userDTO){
-        return this.userService.create(userDTO);
+    public User create(@RequestBody UserDTO userdto){
+        return this.userService.create(userdto);
     }
 	
 	@GetMapping("/all")
@@ -31,10 +31,11 @@ public class UserController {
 	        this.userService.deleteById(Long.valueOf(id));
 	    }
 	 
-	 @PutMapping("/update")
+	@PutMapping("/update")
 	    public void updateClient(@RequestBody User user) {
 
 	        this.userService.save(user);
+	 
 	
 }
 }

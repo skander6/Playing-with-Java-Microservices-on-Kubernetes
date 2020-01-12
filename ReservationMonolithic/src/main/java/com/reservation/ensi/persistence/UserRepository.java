@@ -8,6 +8,7 @@ import com.reservation.ensi.model.User;
 
 
 @Repository
+
 public interface UserRepository extends JpaRepository<User,Long> {
 
 
