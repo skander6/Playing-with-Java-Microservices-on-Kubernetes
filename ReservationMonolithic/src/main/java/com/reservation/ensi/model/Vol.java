@@ -18,7 +18,7 @@ public class Vol {
     private Date dateDepart;
     private Date dateArrive;
     private  Long nbrePlaceDispo;
-    @OneToOne
+    @ManyToOne
     private Plane plane;
 
     public Vol(){
@@ -29,5 +29,7 @@ public class Vol {
         this.arrive=arrive;
         this.dateArrive=dateArrive;
         this.nbrePlaceDispo=nbrePlaceDispo;
+       
     }
 }
+

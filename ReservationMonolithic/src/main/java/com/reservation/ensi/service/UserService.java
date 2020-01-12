@@ -16,9 +16,9 @@ public class UserService {
     public List<User> findAll(){
         return this.userRepository.findAll();
      }
-    public User create(UserDTO UserDTO){
+    public User create(UserDTO userdto){
 
-        return this.userRepository.save(new User(UserDTO.getNom(),UserDTO.getPrenom(),UserDTO.getmail(),UserDTO.getcarte_bancaire(),UserDTO.getnumero()));
+        return this.userRepository.save(new User(userdto.getNom(),userdto.getPrenom(),userdto.getMail(),userdto.getCarte_bancaire(),userdto.getNumero()));
         		
         	  }
     public void deleteById(Long id){
@@ -26,6 +26,7 @@ public class UserService {
     }
     
     public void save(User user) {
+    	
         userRepository.save(user);
     }
     
