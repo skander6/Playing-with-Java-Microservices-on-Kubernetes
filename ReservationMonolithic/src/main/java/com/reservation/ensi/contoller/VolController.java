@@ -1,3 +1,4 @@
+
 package com.reservation.ensi.contoller;
 
 
@@ -11,13 +12,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/voles")
+@RequestMapping("/api/voles")
 public class VolController {
     @Autowired
     private VolService volService;
-    @PostMapping
-    public Vol create(@RequestBody VolDTO volDTO){
-        return this.volService.create(volDTO);
+    @PostMapping("/{planeId}")
+    public Vol create(@RequestBody VolDTO volDTO,@PathVariable Long planeId){
+        Plane plane= volService.findPlaneById(planeId);
+        System.out.println(planeId);
+        return this.volService.create(volDTO,plane);
     }
     @GetMapping("/all")
     public List<Vol> findAll(){

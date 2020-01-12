@@ -17,31 +17,18 @@ public class ReservationDTO {
         return paiment;
     }
 
-    public void setPaiment(Boolean paiment) {
-        this.paiment = paiment;
-    }
-
     public int getPlaceNumber() {
         return placeNumber;
-    }
-
-    public void setPlaceNumber(int placeNumber) {
-        this.placeNumber = placeNumber;
     }
 
     public Vol getVol() {
         return vol;
     }
 
-    public void setVol(Vol vol) {
-        this.vol = vol;
-    }
-
     public User getUser() {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
+
+

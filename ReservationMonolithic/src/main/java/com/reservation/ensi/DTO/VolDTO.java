@@ -1,5 +1,6 @@
 package com.reservation.ensi.DTO;
 
+import com.reservation.ensi.model.Plane;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,6 +11,11 @@ public class VolDTO {
     private Date dateDepart;
     private Date dateArrive;
     private  Long NbrePlaceDispo;
+
+    public Date getDateArrive() {
+        return dateArrive;
+    }
+
 
     public String getDepart() {
         return depart;
