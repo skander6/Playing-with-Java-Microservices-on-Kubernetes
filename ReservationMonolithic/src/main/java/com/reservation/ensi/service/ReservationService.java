@@ -15,12 +15,14 @@ public class ReservationService {
     @Autowired
     private ReservationRepository reservationRepository;
 
+    private Reservation reservation;
+
     public List<Reservation> findAll(){
         return this.reservationRepository.findAll();
     }
 
     public Reservation create(ReservationDTO reservationDTO){
-        if(reservationDTO.getVol().getNbrPlaceDispo().compareTo(BigDecimal.ZERO)>0){
+        if(reservationDTO.getVol().getNbrePlaceDispo() > 0){
             return this.reservationRepository.save(
                     new Reservation(reservationDTO.getUser(), reservationDTO.getVol(), reservationDTO.getPlaceNumber()));
         }
@@ -32,6 +34,13 @@ public class ReservationService {
 
     public void deleteById(Long id){
         this.reservationRepository.deleteById(id);
+    }
+
+    public void pay(Long id) {
+
+        reservation = reservationRepository.getOne(id);
+        reservation.setPaiment(Boolean.TRUE);
+        reservationRepository.save(reservation);
     }
 
 }

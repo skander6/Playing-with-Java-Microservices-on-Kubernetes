@@ -17,8 +17,13 @@ public class Vol {
     private String arrive;
     private Date dateDepart;
     private Date dateArrive;
+<<<<<<< HEAD
     private  Long nbrePlaceDispo;
     @ManyToOne
+=======
+    private Long nbrePlaceDispo;
+    @OneToOne
+>>>>>>> bf42036a33ec45d3f3c49fac84d65954655a8157
     private Plane plane;
 
     public Vol(){
@@ -30,6 +35,14 @@ public class Vol {
         this.dateArrive=dateArrive;
         this.nbrePlaceDispo=nbrePlaceDispo;
        
+    }
+
+    public Long getNbrePlaceDispo() {
+        return nbrePlaceDispo;
+    }
+
+    public void setNbrePlaceDispo(Long nbrePlaceDispo) {
+        this.nbrePlaceDispo = nbrePlaceDispo;
     }
 }
 
