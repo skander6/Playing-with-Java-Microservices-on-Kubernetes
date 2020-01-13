@@ -1,7 +1,10 @@
 package com.ensi.reservation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Vol {
 
     private Long id;

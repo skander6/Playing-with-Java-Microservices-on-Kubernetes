@@ -19,6 +19,8 @@ public class VolService {
     @Autowired
     private PlaneRepository planeRepository;
 
+    private Vol vol;
+
     public List<Vol> findAll(){
         return this.volRepository.findAll();
     }
@@ -44,8 +46,10 @@ public class VolService {
         return this.planeRepository.getOne(id);
     }
 
-    public void updateNbPlace(Vol vol){
+    public void updateNbPlace(Long volId){
+        vol = volRepository.getOne(volId);
         vol.setNbrePlaceDispo(vol.getNbrePlaceDispo()-1);
+        volRepository.save(vol);
     }
 
 

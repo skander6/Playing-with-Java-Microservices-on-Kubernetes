@@ -17,9 +17,6 @@ public class ReservationController {
     @Autowired
     private ReservationService reservationService;
 
-    @Autowired
-    private RestTemplate restTemplate;
-
 
 
     @PostMapping("/vol/{volId}")

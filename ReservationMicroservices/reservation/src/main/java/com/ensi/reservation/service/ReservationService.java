@@ -28,10 +28,10 @@ public class ReservationService {
     }
 
     public Reservation createReservation(ReservationDTO reservationDTO, Long userId, Long volId){
-         volService.getVolById(volId);
+        vol = volService.getVolById(volId);
         if(vol.getNbrePlaceDispo() > 0){
             vol.setNbrePlaceDispo(vol.getNbrePlaceDispo()-1);
-            volService.updateVol(vol);
+            volService.updateVol(volId);
             return this.reservationRepository.save(
                     new Reservation(userId, volId, reservationDTO.getPlaceNumber()));
         }

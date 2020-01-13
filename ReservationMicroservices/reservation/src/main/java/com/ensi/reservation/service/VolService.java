@@ -17,16 +17,16 @@ public class VolService {
 
 
 
-    public void getVolById(Long volId){
+    public Vol getVolById(Long volId){
         //rest get
-        System.out.println(restTemplate.getForObject("http://localhost:8081/api/voles/" + volId,Vol.class));
+        vol = restTemplate.getForObject("http://localhost:8081/api/voles/" + volId, Vol.class);
         System.out.println(vol);
-
+        return vol;
     }
 
-    public void updateVol(Vol vol){
+    public void updateVol(Long volId){
         // rest put
-        restTemplate.put("http://localhost:8081/api/voles/update",vol);
+        restTemplate.put("http://localhost:8081/api/voles/update/"+volId,null);
     }
 
 }

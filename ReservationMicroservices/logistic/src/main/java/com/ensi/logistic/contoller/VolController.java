@@ -46,11 +46,9 @@ public class VolController {
         return this.volService.findVolById(id);
     }
 
-    @PutMapping("/update")
-    public void updateNbPlace(@RequestBody Vol vol) {
-        volService.updateNbPlace(vol);
-        this.volService.save(vol);
-
+    @PutMapping("/update/{volId}")
+    public void updateNbPlace(@PathVariable Long volId) {
+        volService.updateNbPlace(volId);
     }
 
 }
