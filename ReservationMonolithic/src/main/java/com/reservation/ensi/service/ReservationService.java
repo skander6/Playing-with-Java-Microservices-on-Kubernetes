@@ -20,9 +20,6 @@ public class ReservationService {
     private ReservationRepository reservationRepository;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private VolRepository volRepository;
 
     private Reservation reservation;
@@ -32,7 +29,6 @@ public class ReservationService {
     }
 
     public Reservation createReservation(ReservationDTO reservationDTO, Long userId, Long volId){
-        //User user = userRepository.getOne(userId);
         Vol vol = volRepository.getOne(volId);
         if(vol.getNbrePlaceDispo() > 0){
             vol.setNbrePlaceDispo(vol.getNbrePlaceDispo()-1);

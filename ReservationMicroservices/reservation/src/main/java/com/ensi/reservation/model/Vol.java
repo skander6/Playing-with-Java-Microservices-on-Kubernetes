@@ -1,17 +1,9 @@
-package com.ensi.logistic.model;
+package com.ensi.reservation.model;
 
-
-import lombok.Data;
-import lombok.Generated;
-
-import javax.persistence.*;
 import java.util.Date;
 
-@Data
-@Entity
 public class Vol {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long id;
     private String depart;
     private String arrive;
@@ -42,4 +34,3 @@ public class Vol {
         this.nbrePlaceDispo = nbrePlaceDispo;
     }
 }
-

@@ -10,9 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @CrossOrigin(origins = {"http://localhost:8082","http://localhost:8083"})
 @RestController
-@RequestMapping("/planes")
+@RequestMapping("/api/planes")
 public class PlaneController {
     @Autowired
     private PlaneService planeService;

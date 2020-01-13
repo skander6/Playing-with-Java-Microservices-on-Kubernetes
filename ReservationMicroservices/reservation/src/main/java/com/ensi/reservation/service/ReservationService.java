@@ -1,12 +1,9 @@
-package com.reservation.ensi.service;
+package com.ensi.reservation.service;
 
-import com.reservation.ensi.DTO.ReservationDTO;
-import com.reservation.ensi.model.Reservation;
-import com.reservation.ensi.model.User;
-import com.reservation.ensi.model.Vol;
-import com.reservation.ensi.persistence.ReservationRepository;
-import com.reservation.ensi.persistence.UserRepository;
-import com.reservation.ensi.persistence.VolRepository;
+import com.ensi.reservation.DTO.ReservationDTO;
+import com.ensi.reservation.model.Reservation;
+import com.ensi.reservation.model.Vol;
+import com.ensi.reservation.persistence.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,22 +17,21 @@ public class ReservationService {
     private ReservationRepository reservationRepository;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired VolRepository volRepository;
+    private VolService volService;
 
     private Reservation reservation;
 
-    public List<Reservation> getAllReservation(){
-        return this.reservationRepository.findAll();
+    public List<Reservation> getAllUserReservations(Long userId){
+        return this.reservationRepository.findReservationsByUser(userId);
     }
 
     public Reservation createReservation(ReservationDTO reservationDTO, Long userId, Long volId){
-        User user = userRepository.getOne(userId);
-        Vol vol = volRepository.getOne(volId);
-        if(reservationDTO.getVol().getNbrePlaceDispo() > 0){
+        Vol vol = volService.getVolById(volId);
+        if(vol.getNbrePlaceDispo() > 0){
+            vol.setNbrePlaceDispo(vol.getNbrePlaceDispo()-1);
+            volService.updateVol(vol);
             return this.reservationRepository.save(
-                    new Reservation(user, vol, reservationDTO.getPlaceNumber()));
+                    new Reservation(userId, volId, reservationDTO.getPlaceNumber()));
         }
 
         else {
@@ -48,9 +44,8 @@ public class ReservationService {
     }
 
     public void pay(Long id) {
-
         reservation = reservationRepository.getOne(id);
-        reservation.setPaiment(Boolean.TRUE);
+        reservation.setPaiment(true);
         reservationRepository.save(reservation);
     }
 

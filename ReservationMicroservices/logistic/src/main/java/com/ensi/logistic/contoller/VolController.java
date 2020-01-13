@@ -12,21 +12,23 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = {"http://localhost:8082","http://localhost:8083"})
 @RestController
 @RequestMapping("/api/voles")
 public class VolController {
     @Autowired
     private VolService volService;
-    @PostMapping(value="/{planeId}",consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = { MediaType.APPLICATION_JSON_VALUE})
+
+    @PostMapping("/{planeId}")
     public Vol create(@RequestBody VolDTO volDTO, @PathVariable Long planeId){
-        Plane plane= new Plane(planeId,"");
-        volDTO.setPlane(plane);
-        return this.volService.create(volDTO);
+        return this.volService.create(volDTO, planeId);
     }
+
     @GetMapping("/all")
     public List<Vol> findAll(){
         return this.volService.findAll();
     }
+
     @PutMapping("/update")
     public void updateVol(@RequestBody Vol vol) {
         this.volService.save(vol);

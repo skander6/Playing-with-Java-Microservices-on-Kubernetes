@@ -15,16 +15,14 @@ public class VolService {
 
     @Autowired
     private VolRepository volRepository;
-    @Autowired
-    private PlaneRepository planeRepository;
 
     public List<Vol> findAll(){
         return this.volRepository.findAll();
     }
 
-    public Vol create(VolDTO volDTO){
+    public Vol create(VolDTO volDTO, Long plane){
         return this.volRepository.save(
-                new Vol( volDTO.getDepart(),volDTO.getArrive(), volDTO.getDateDepart(),volDTO.getdateArrive(),volDTO.getNbrePlaceDispo(),volDTO.getPlane()));
+                new Vol( volDTO.getDepart(),volDTO.getArrive(), volDTO.getDateDepart(),volDTO.getDateArrive(), volDTO.getNbrePlaceDispo(), plane));
     }
     public void deleteById(Long id){
         this.volRepository.deleteById(id);
@@ -33,10 +31,6 @@ public class VolService {
     public void save(Vol vol) {
         volRepository.save(vol);
     }
-    public Plane findPlaneById(Long id) {
-        return this.planeRepository.getOne(id);
-    }
-
 }
 
 

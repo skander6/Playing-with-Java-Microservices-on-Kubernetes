@@ -1,16 +1,16 @@
 package com.ensi.reservation.contoller;
 
 import com.ensi.reservation.model.Reservation;
-import com.reservation.ensi.DTO.ReservationDTO;
-import com.reservation.ensi.service.ReservationService;
+import com.ensi.reservation.DTO.ReservationDTO;
+import com.ensi.reservation.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = {"http://localhost:8081","http://localhost:8083"})
 @RestController
-
-@RequestMapping("/api/users/{userId}/reservation")
+@RequestMapping("/api/reservations/user/{userId}")
 public class ReservationController {
 
     @Autowired
@@ -23,11 +23,11 @@ public class ReservationController {
     }
 
     @GetMapping("/all")
-    public List<Reservation> getAllReservation(){
-        return this.reservationService.getAllReservation();
+    public List<Reservation> getAllUserReservations(@PathVariable Long userId){
+        return this.reservationService.getAllUserReservations(userId);
     }
 
-    @PutMapping("/{reservationId}/pay")
+    @PutMapping("/pay/{reservationId}")
     public void payReservation(@PathVariable Long reservationId) {
         this.reservationService.pay(reservationId);
     }

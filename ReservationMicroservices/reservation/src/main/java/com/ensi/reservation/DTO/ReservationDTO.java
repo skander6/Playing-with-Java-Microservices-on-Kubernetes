@@ -6,8 +6,8 @@ public class ReservationDTO {
 
     private Boolean paiment = false;
     private int placeNumber = 7;
-    private Vol vol;
-    private User user;
+    private Long vol;
+    private Long user;
 
     public ReservationDTO() {
     }
@@ -20,11 +20,11 @@ public class ReservationDTO {
         return placeNumber;
     }
 
-    public Vol getVol() {
+    public Long getVol() {
         return vol;
     }
 
-    public User getUser() {
+    public Long getUser() {
         return user;
     }
 
