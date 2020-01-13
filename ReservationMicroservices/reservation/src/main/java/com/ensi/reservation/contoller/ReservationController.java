@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"http://localhost:8081","http://localhost:8083"})
+//@CrossOrigin(origins = {"http://localhost:8081","http://localhost:8083"})
 @RestController
 @RequestMapping("/api/reservations/user/{userId}")
 public class ReservationController {

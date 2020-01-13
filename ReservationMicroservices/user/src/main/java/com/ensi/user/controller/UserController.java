@@ -2,18 +2,18 @@ package com.ensi.user.controller;
 
 import java.util.List;
 
+import com.ensi.user.DTO.UserDTO;
 import com.ensi.user.model.User;
 import com.ensi.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.reservation.ensi.DTO.UserDTO;
 
 
-
-
+//@CrossOrigin(origins = {"http://localhost:8082","http://localhost:8081"})
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
 	@Autowired
     private UserService userService;
 	
@@ -27,16 +27,15 @@ public class UserController {
     public List<User> findAll(){
         return this.userService.findAll();
     }
-	 @DeleteMapping("/{id}")
+
+    @DeleteMapping("/{id}")
 	    public void deleteProduct(@PathVariable String id){
 	        this.userService.deleteById(Long.valueOf(id));
 	    }
 	 
 	@PutMapping("/update")
 	    public void updateClient(@RequestBody User user) {
-
 	        this.userService.save(user);
-	 
-	
-}
+	}
+
 }

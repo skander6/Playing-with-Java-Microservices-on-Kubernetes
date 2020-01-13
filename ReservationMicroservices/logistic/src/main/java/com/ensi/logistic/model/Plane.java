@@ -1,6 +1,7 @@
 package com.ensi.logistic.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Plane {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,8 +18,7 @@ public class Plane {
     private String type;
     private boolean available;
     private int nbPlace;
-    @OneToMany
-    private List<Vol> vols;
+
 
     public Plane(){
 

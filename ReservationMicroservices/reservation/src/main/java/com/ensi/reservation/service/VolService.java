@@ -19,14 +19,14 @@ public class VolService {
 
     public Vol getVolById(Long volId){
         //rest get
-        vol = restTemplate.getForObject("http://localhost:8081/api/voles/" + volId, Vol.class);
+        vol = restTemplate.getForObject("http://logistic/api/voles/" + volId, Vol.class);
         System.out.println(vol);
         return vol;
     }
 
     public void updateVol(Long volId){
         // rest put
-        restTemplate.put("http://localhost:8081/api/voles/update/"+volId,null);
+        restTemplate.put("http://logistic/api/voles/update/"+volId,null);
     }
 
 }

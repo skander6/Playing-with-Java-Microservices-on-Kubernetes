@@ -35,7 +35,6 @@ public class ReservationService {
             return this.reservationRepository.save(
                     new Reservation(userId, volId, reservationDTO.getPlaceNumber()));
         }
-
         else {
             throw new IllegalArgumentException("NO PLACE AVAILABLE");
         }
