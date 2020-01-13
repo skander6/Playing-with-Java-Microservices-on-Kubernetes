@@ -1,6 +1,7 @@
 package com.ensi.logistic.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.Generated;
 
@@ -9,6 +10,7 @@ import java.util.Date;
 
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Vol {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

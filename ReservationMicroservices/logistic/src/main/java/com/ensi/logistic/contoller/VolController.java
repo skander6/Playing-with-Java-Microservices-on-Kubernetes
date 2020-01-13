@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/voles")
 public class VolController {
+
     @Autowired
     private VolService volService;
 
@@ -29,14 +30,27 @@ public class VolController {
         return this.volService.findAll();
     }
 
-    @PutMapping("/update")
-    public void updateVol(@RequestBody Vol vol) {
-        this.volService.save(vol);
+//    @PutMapping("/update")
+//    public void updateVol(@RequestBody Vol vol) {
+//        this.volService.save(vol);
+//
+//    }
 
-    }
     @DeleteMapping("/{id}")
     public void deleteVol(@PathVariable String id){
         this.volService.deleteById(Long.valueOf(id));
+    }
+
+    @GetMapping("/{id}")
+    public Vol GetVol(@PathVariable Long id){
+        return this.volService.findVolById(id);
+    }
+
+    @PutMapping("/update")
+    public void updateNbPlace(@RequestBody Vol vol) {
+        volService.updateNbPlace(vol);
+        this.volService.save(vol);
+
     }
 
 }

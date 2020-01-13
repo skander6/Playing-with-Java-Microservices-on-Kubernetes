@@ -5,6 +5,7 @@ import com.ensi.reservation.DTO.ReservationDTO;
 import com.ensi.reservation.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -15,6 +16,10 @@ public class ReservationController {
 
     @Autowired
     private ReservationService reservationService;
+
+    @Autowired
+    private RestTemplate restTemplate;
+
 
 
     @PostMapping("/vol/{volId}")

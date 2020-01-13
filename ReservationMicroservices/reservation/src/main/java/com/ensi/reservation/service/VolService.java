@@ -13,19 +13,20 @@ public class VolService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private Vol vol;
+    private Vol vol = new Vol();
 
 
 
-    public Vol getVolById(Long volId){
+    public void getVolById(Long volId){
         //rest get
-        Vol vol = restTemplate.getForObject("http://movie-info-service/movies/" + volId, Vol.class);
-        return vol;
+        System.out.println(restTemplate.getForObject("http://localhost:8081/api/voles/" + volId,Vol.class));
+        System.out.println(vol);
+
     }
 
     public void updateVol(Vol vol){
         // rest put
-        restTemplate.put("http://movie-info-service/movies/",vol);
+        restTemplate.put("http://localhost:8081/api/voles/update",vol);
     }
 
 }

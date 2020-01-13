@@ -21,12 +21,14 @@ public class ReservationService {
 
     private Reservation reservation;
 
+    private Vol vol = new Vol();
+
     public List<Reservation> getAllUserReservations(Long userId){
         return this.reservationRepository.findReservationsByUser(userId);
     }
 
     public Reservation createReservation(ReservationDTO reservationDTO, Long userId, Long volId){
-        Vol vol = volService.getVolById(volId);
+         volService.getVolById(volId);
         if(vol.getNbrePlaceDispo() > 0){
             vol.setNbrePlaceDispo(vol.getNbrePlaceDispo()-1);
             volService.updateVol(vol);
