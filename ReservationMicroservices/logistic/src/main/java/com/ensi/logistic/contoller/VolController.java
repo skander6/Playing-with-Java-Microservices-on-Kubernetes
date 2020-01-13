@@ -36,5 +36,16 @@ public class VolController {
     public void deleteVol(@PathVariable String id){
         this.volService.deleteById(Long.valueOf(id));
     }
+    @GetMapping("/{id}")
+    public void GetVol(@PathVariable String id){
+        this.volService.findVolById(Long.valueOf(id));
+    }
+
+    @PutMapping("/updateNbPlace")
+    public void updateNbPlace(@RequestBody Vol vol) {
+        volService.updateNbPlace(vol);
+        this.volService.save(vol);
+
+    }
 
 }
