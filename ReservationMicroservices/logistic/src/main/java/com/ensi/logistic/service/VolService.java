@@ -21,6 +21,7 @@ public class VolService {
     public List<Vol> findAll(){
         return this.volRepository.findAll();
     }
+    public Vol findVolById(Long Id){ return  this.volRepository.getOne(Id);}
 
     public Vol create(VolDTO volDTO){
         return this.volRepository.save(
@@ -35,6 +36,9 @@ public class VolService {
     }
     public Plane findPlaneById(Long id) {
         return this.planeRepository.getOne(id);
+    }
+    public void updateNbPlace(Vol vol){
+        vol.setNbrePlaceDispo(vol.getNbrePlaceDispo()-1);
     }
 
 }
